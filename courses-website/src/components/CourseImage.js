@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
 
-export default class About extends Component {
+import React, { Component } from 'react'
+import '../App.css'
+
+export default class CourseImage extends Component {
     render() {
         return (
             <div>
-                About
+              <img src={this.props.url}/>
             </div>
         )
     }

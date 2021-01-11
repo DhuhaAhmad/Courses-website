@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Categories from './Categories'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export default class Home extends Component {
 
@@ -41,13 +48,19 @@ export default class Home extends Component {
 
 
     
-
     render() {
         return (
+            <Router>
             <div>
-            {this.state.randomRuete}    
+            {this.state.randomRuete}  
+            {/* To Categories page   */}
+          <Link to='/categories'><button>GET STARTED</button></Link> 
+          {/* <Route exact path='/' component={Home}></Route>  */}
+          <Route path='/categories' component={Categories}></Route> 
 
             </div>
+            </Router>
+
         )
     }
 }

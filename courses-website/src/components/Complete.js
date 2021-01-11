@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class About extends Component {
+export default class complete extends Component {
     render() {
         return (
             <div>
-                About
+                <i class="material-icons">face</i>
             </div>
         )
     }
