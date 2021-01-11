@@ -13,13 +13,13 @@ export default class Categories extends Component {
     this.state = {
       fliter: "",
       webDevelpment: [],
-      Markiting: [],
-      MakeUp: [],
+      business : [],
+      makeUp: [],
     };
-    this.grtWebDevelpmentCourses = this.grtWebDevelpmentCourses.bind(this);
+    this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
   }
 
-  grtWebDevelpmentCourses = (filter) => {
+  getWebDevelpmentCourses = (filter) => {
       this.setState({filter:filter})
     const webDevelpment = this.state.webDevelpment;
     const url =
@@ -38,13 +38,7 @@ export default class Categories extends Component {
           webDevelpment.push(sinlePlaylist);
           this.setState({ webDevelpment });
 
-          //    const src =  response.data.items[0].player.embedHtml
-          //    const urlStart = src.indexOf('src=') + 5
-          //    const end = src.substring(urlStart).indexOf('"') + urlStart
-          //    const playListUrl = src.substring(urlStart,end)
-          //    webDevelpment.push(playListUrl)
-          //    this.setState({webDevelpment})
-          //    console.log(this.state.webDevelpment)
+         
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -52,15 +46,42 @@ export default class Categories extends Component {
     });
   };
 
+  getBusinessCourses = (filter) => {
+    this.setState({filter:filter})
+  const business = this.state.business;
+  const url =
+    "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cplayer&id=PL8dPuuaLjXtMBsfP-lP28IFvfkISqJofM&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0";
+  const url2 =
+    "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cplayer&id=PLX6DRnWZs6BHIjiLWEPZVycyBEJuRASKZ&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0";
+  const Api = [url, url2];
+  Api.forEach((ele) => {
+    axios
+      .get(ele)
+      .then((response) => {
+        // console.log(response)
+        // console.log(response.data)
+        //to get URL
+        const sinlePlaylist = response.data.items[0];
+        business.push(sinlePlaylist);
+        this.setState({ business });
+
+       
+      })
+      .catch((error) => {
+        console.log(`Error: ${error}`);
+      });
+  });
+};
+
   render() {
-      const courseArray = this.state.fliter === 'web development' ? this.state.webDevelpment : this.state.filter === 'marketing'? this.state.Markiting : this.state.MakeUp
+      const courseArray = this.state.fliter === 'web development' ? this.state.webDevelpment : this.state.filter === 'business'? this.state.business : this.state.makeUp
     return (
       <Router>
         <div>
           <Link
             to="/courses-container"
             onClick={(e) => {
-              this.grtWebDevelpmentCourses('web development');
+              this.getWebDevelpmentCourses('web development');
             }}
           >
             {" "}
@@ -73,12 +94,12 @@ export default class Categories extends Component {
           <Link
             to="/courses-container"
             onClick={(e) => {
-              this.grtWebDevelpmentCourses('marketing');
+              this.getBusinessCourses('business');
             }}
           >
           <Category
             url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
-            category={"Marketing"}
+            category={"Business"}
           />
           </Link>
           {/* ==================================================================== */}
@@ -112,3 +133,13 @@ export default class Categories extends Component {
     );
   }
 }
+
+
+
+ //    const src =  response.data.items[0].player.embedHtml
+          //    const urlStart = src.indexOf('src=') + 5
+          //    const end = src.substring(urlStart).indexOf('"') + urlStart
+          //    const playListUrl = src.substring(urlStart,end)
+          //    webDevelpment.push(playListUrl)
+          //    this.setState({webDevelpment})
+          //    console.log(this.state.webDevelpment)
