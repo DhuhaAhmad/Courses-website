@@ -11,12 +11,14 @@ export default class Categories extends Component {
     super(props);
 
     this.state = {
-      fliter: "",
+        appear:true,
+      filter: "",
       webDevelpment: [],
       business : [],
       makeUp: [],
     };
     this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
+    this.getBusinessCourses = this.getBusinessCourses.bind(this);
   }
 
   getWebDevelpmentCourses = (filter) => {
@@ -37,6 +39,7 @@ export default class Categories extends Component {
           const sinlePlaylist = response.data.items[0];
           webDevelpment.push(sinlePlaylist);
           this.setState({ webDevelpment });
+          this.setState({appear:false})
 
          
         })
@@ -64,7 +67,7 @@ export default class Categories extends Component {
         const sinlePlaylist = response.data.items[0];
         business.push(sinlePlaylist);
         this.setState({ business });
-
+        this.setState({appear:false})
        
       })
       .catch((error) => {
@@ -74,60 +77,59 @@ export default class Categories extends Component {
 };
 
   render() {
-      const courseArray = this.state.fliter === 'web development' ? this.state.webDevelpment : this.state.filter === 'business'? this.state.business : this.state.makeUp
-    return (
-      <Router>
-        <div>
-          <Link
-            to="/courses-container"
-            onClick={(e) => {
-              this.getWebDevelpmentCourses('web development');
-            }}
-          >
-            {" "}
-            <Category
-              url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
-              category={"Web Development"}
-            />{" "}
-          </Link>
-          {/* ==================================================================== */}
-          <Link
-            to="/courses-container"
-            onClick={(e) => {
-              this.getBusinessCourses('business');
-            }}
-          >
-          <Category
-            url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
-            category={"Business"}
-          />
-          </Link>
-          {/* ==================================================================== */}
-          <Link
-            to="/courses-container"
-            onClick={(e) => {
-              this.grtWebDevelpmentCourses('makeup');
-            }}
-          >
-          <Category
-            url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
-            category={"Design"}
-          />
-          </Link>
-          Categories
+      const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : this.state.makeUp))
+    
+      const toRender = <div> <Link
+      to="/courses-container"
+      onClick={(e) => {
+        this.getWebDevelpmentCourses('web development');
+      }}
+    >
+      {" "}
+      <Category
+        url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+        category={"Web Development"}
+      />{" "}
+    </Link>
+    <Link
+      to="/courses-container"
+      onClick={(e) => {
+        this.getBusinessCourses('business');
+      }}
+    >
+    <Category
+      url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+      category={"Business"}
+    />
+    </Link>
+    <Link
+      to="/courses-container"
+      onClick={(e) => {
+        this.grtWebDevelpmentCourses('makeup');
+      }}
+    >
 
-          
-          <Route
+    <Category
+      url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+      category={"Design"}
+    />
+    </Link> </div>
+      return (
+      <Router>
+        <div> 
+            {this.state.appear ? toRender : <Route
             path="/courses-container"
             render={(props) => (
               <CoursesContainer {...props} course={courseArray} />
             )}
-          />
-          {/* Add props with Route */}
-          {/* <Route
-            path="/dashboard"
-            render={(props) => <Dashboard {...props} isAuthed={true} />}
-          /> */}
+          />}
+
+         
+          
+          Categories
+
+          
+          
         </div>
       </Router>
     );

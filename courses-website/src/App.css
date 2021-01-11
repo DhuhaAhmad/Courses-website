@@ -61,3 +61,10 @@ img{
   min-height: 100px;
   width: 30vw;
 }
+
+.start{
+  background-color: lightblue;
+  border-radius: 50px;
+  border: hidden;
+  color: white;
+}
