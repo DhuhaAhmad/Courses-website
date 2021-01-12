@@ -68,3 +68,12 @@ img{
   border: hidden;
   color: white;
 }
+
+li{
+list-style: none;
+}
+
+li img{
+  height: 5%;
+  width: 5%;
+}

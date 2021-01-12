@@ -5,8 +5,13 @@ import ListItem from './ListItem'
 export default class PlayList extends Component {
     render() {
 
-        const allVideoList = this.props.videoInfo.map(ele=>{
-            return <ListItem title={ele.title} url={ele.image}/>
+        const allVideoList = this.props.videoInfo.map((ele,i)=>{
+            return <ListItem title={ele.title} 
+            url={ele.image} 
+            videoId={ele.videoId}
+            key={i}
+            getUrl={this.props.getUrl}
+            />
 
         })
         return (

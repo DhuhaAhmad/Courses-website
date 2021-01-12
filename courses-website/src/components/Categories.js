@@ -14,7 +14,9 @@ export default class Categories extends Component {
         appear:true,
       filter: "",
       webDevelpment: [],
+      WDPlaylistItems: [],
       business : [],
+      BPlaylistItems : [],
       makeUp: [],
     };
     this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
