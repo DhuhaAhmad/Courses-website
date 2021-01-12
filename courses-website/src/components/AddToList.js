@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 
 export default class AddToList extends Component {
+
+
+  handleLearning=(e)=>{
+    this.props.handlelearning()
+    this.props.addToMyLearning()
+  }
   render() {
+    const isLearning = this.props.isLearning ? 'remove' : 'add'
     return (
-      <div>
-        <span className="material-icons md-48">add_box</span>
+      <div className="btn-floating btn-large waves-effect waves-light red">
+         <i  onClick={this.handleLearning} className="material-icons">{isLearning}</i>
+
       </div>
     );
   }

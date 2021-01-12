@@ -14,9 +14,9 @@ export default class Categories extends Component {
         appear:true,
       filter: "",
       webDevelpment: [],
-      WDPlaylistItems: [],
+      // WDPlaylistItems: [],
       business : [],
-      BPlaylistItems : [],
+      // BPlaylistItems : [],
       makeUp: [],
     };
     this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
@@ -80,7 +80,7 @@ export default class Categories extends Component {
 
   render() {
       const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : this.state.makeUp))
-    
+    // store categories in var
       const toRender = <div> <Link
       to="/courses-container"
       onClick={(e) => {
@@ -119,12 +119,16 @@ export default class Categories extends Component {
       return (
       <Router>
         <div> 
+          {/* to disappear the course categories */}
+
             {this.state.appear ? toRender : <Route
             path="/courses-container"
             render={(props) => (
-              <CoursesContainer {...props} course={courseArray} />
+              <CoursesContainer {...props} course={courseArray}  
+              addToMyLearning={(e)=>this.props.addToMyLearning(e)} 
+              filter={this.state.filter}/>
             )}
-          />}
+          />} {/**END IF statement */}
 
          
           

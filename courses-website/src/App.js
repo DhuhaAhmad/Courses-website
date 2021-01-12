@@ -6,6 +6,7 @@ import Categories from './components/Categories'
 import About from './components/About'
 import CoursesContainer from './components/CoursesContainer'
 import PlayCourse from './components/PlayCourse'
+import MyLearning from './components/MyLearning'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,25 +16,23 @@ import {
 
 export default class App extends Component {
 
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      myLearning:[]
+    }
+    // this.addToMyLearning=this.addToMyLearning.bind(this)
+  }
+  
 
-
-  getPlaylist=()=>{
-    const url = 'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cplayer&id=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0'
-    axios
-.get(url)
-.then((response)=>{
-    // console.log(response)
-    // console.log(response.data)
-    //to get URL
-   const url =  response.data.items[0].player.embedHtml
-   const urlStart = url.indexOf('src=') + 5
-   const end = url.substring(urlStart).indexOf('"') + urlStart
-   const playListUrl = url.substring(urlStart,end)  
-})
-.catch((error)=>{
-
-    console.log(`Error: ${error}`)
-})
+addToMyLearning=(course)=>{
+const myLearning = this.state.myLearning.slice(0) //Create a copy of faves Array
+const courseIndex = myLearning.indexOf(course)
+myLearning.includes(course)? myLearning.splice(courseIndex,1) : myLearning.push(course)
+this.setState({myLearning})
+// console.log(myLearning)
+console.log('Added to learnig')
 
   }
   render() {
@@ -41,20 +40,30 @@ export default class App extends Component {
       <Router>
       <div className='container'>
       <nav >
-        <Link to='/'>Home</Link>  <span> || </span>
-        <Link to='/about'>About</Link> <span> || </span>
-        <Link to='/categories'>Categories</Link>
+        <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li> <Link to='/'>Home</Link> </li> 
+        <li> <Link to='/about'>About</Link></li>
+        <li> <Link to='/categories'>Categories</Link></li>
+        <li> <Link to='/my-learning'>MyLearning</Link></li>
+      </ul>
+    </div>
         </nav>
 
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
-        <Route path='/categories' component={Categories} />
-
-        {/* <iframe width='700px' height='700px' src='http://www.youtube.com/embed/videoseries?list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3'></iframe> */}
-         {/* <button onClick={(e)=>this.getPlaylist(e)}>Click me</button> */}
-        
-        {/* <CoursesContainer /> */}
-        <PlayCourse />
+        {/* <Route path='/categories' component={Categories}   /> */}
+        <Route
+            path='/categories'
+            render={(props) => (
+              <Categories {...props} addToMyLearning={this.addToMyLearning} myLearnig={this.state.myLearnig} /> )}
+              />
+        <Route
+            path='/my-learning'
+            render={(props) => (
+              <MyLearning {...props}  myLearnig={this.state.myLearnig}/> )}
+              />
 
       </div>
       </Router>
@@ -62,9 +71,3 @@ export default class App extends Component {
   }
 }
 
-
-
-// var srcIndex = __cdata.substring(tagIndex).indexOf('src=') + tagIndex; // Find where the src attribute starts
-// var urlStart = srcIndex + 5; // Find where the actual image URL starts; 5 for the length of 'src="'
-// var urlEnd = __cdata.substring(urlStart).indexOf('"') + urlStart; // Find where the URL ends
-// var src = __cdata.substring(urlStart, urlEnd); // Extract just the URL

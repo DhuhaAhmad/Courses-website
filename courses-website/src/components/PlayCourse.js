@@ -14,15 +14,17 @@ export default class PlayCourse extends Component {
              videoUrl:''
         }
         this.getListItems=this.getListItems.bind(this)
+        this.getOneVideo=this.getOneVideo.bind(this)
     }
     
 
     getListItems = () => {
-      
+
+      const playListId= this.props.playListId
         let videoId = this.state.videoId
         let videoInfo = this.state.videoInfo
       const url =
-        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=15&playlistId=PLX6DRnWZs6BHIjiLWEPZVycyBEJuRASKZ&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0";
+        `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=100&playlistId=${playListId}&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0`;
         axios
           .get(url)
           .then((response) => {
@@ -109,10 +111,9 @@ export default class PlayCourse extends Component {
             <div>
                 <PlayList videoInfo={this.state.videoInfo}  getUrl={this.getOneVideo}/>
                 <Video videoUrl={this.state.videoUrl} />
-                {/* <button onClick={this.getOneVideo}>Click</button> */}
             </div>
         )
-    }
+    }iuy
 }
 
 /**
@@ -126,5 +127,6 @@ export default class PlayCourse extends Component {
  +++++Videos++++++
  - first video by default
  - make it continuous
+ - Add course to my learning list 
 */ 
 
