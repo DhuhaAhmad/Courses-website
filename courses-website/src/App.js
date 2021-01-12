@@ -38,6 +38,14 @@ this.setState({islearning: !this.setState.islearning})
 console.log('Added to learnig')
 
   }
+
+  removeAllMyLearning=()=>{
+    this.setState({myLearning: []})
+      }
+
+  // componentDidMount(){
+  //   <Home />
+  // }
   render() {
     return (
       <Router>
@@ -58,7 +66,7 @@ console.log('Added to learnig')
         <Route path='/about' component={About} />
         {/* <Route path='/categories' component={Categories}   /> */}
         <Route
-            path='/categories'
+          exact  path='/categories'
             render={(props) => (
               <Categories {...props} addToMyLearning={this.addToMyLearning} myLearnig={this.state.myLearnig} 
               islearning={this.state.islearning} 
@@ -71,6 +79,7 @@ console.log('Added to learnig')
               islearning={this.state.islearning} 
               addToMyLearning={this.addToMyLearning}
               islearning={this.state.islearning} 
+              removeAllMyLearning={this.removeAllMyLearning}
               /> )}
               />
 

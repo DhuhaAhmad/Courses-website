@@ -106,7 +106,6 @@ export default class PlayCourse extends Component {
 
     render() {
 
-     
         return (
             <div>
                 <PlayList videoInfo={this.state.videoInfo}  getUrl={this.getOneVideo}/>
@@ -128,5 +127,9 @@ export default class PlayCourse extends Component {
  - first video by default
  - make it continuous
  - Add course to my learning list 
+
+ ++++++++To do +++++++++
+ - delete all marked
+ - delete all ????
 */ 
 

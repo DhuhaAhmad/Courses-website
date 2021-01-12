@@ -123,7 +123,7 @@ export default class Categories extends Component {
           {/* to disappear the course categories */}
 
             {this.state.appear ? toRender : <Route
-            path="/courses-container"
+           exact path="/courses-container"
             render={(props) => (
               <CoursesContainer {...props} course={courseArray}  
               addToMyLearning={(e)=>this.props.addToMyLearning(e)} 

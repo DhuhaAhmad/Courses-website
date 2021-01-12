@@ -8,6 +8,7 @@ import PlayCourse from './PlayCourse'
 
 export default class Course extends Component {
 
+   
 
     render() {
 
@@ -26,15 +27,16 @@ export default class Course extends Component {
 
                <Link to='/play-course'><StartCourse /></Link> 
 
-               <Route
-            path="/play-course"
-            render={(props) => (
-              <PlayCourse {...props}  playListId={this.props.playListId}/> )}
-              />
+               
               
                 {/* Start icons or button */}
 
             </div>
+            <Route
+           exact path="/play-course"
+            render={(props) => (
+              <PlayCourse {...props}  playListId={this.props.playListId}/> )}
+              />
             </Router>
         )
     }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 // import CoursesContainer from './CoursesContainer'
 import Course from './Course'
+import DeleteAllList from './DeleteAllList'
 
 export default class MyLearning extends Component {
     render() {
+        
 
         const learningCourses = this.props.myLearning.map((ele,i)=>{
             return <Course url={ele.snippet.thumbnails.standard.url} 
@@ -18,7 +20,8 @@ export default class MyLearning extends Component {
             })
         return (
             <div>
-                {learningCourses}
+                <DeleteAllList removeAllMyLearning={this.props.removeAllMyLearning} />
+                {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
             </div>
         )
     }
