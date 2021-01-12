@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Categories from './components/Categories'
 import About from './components/About'
 import CoursesContainer from './components/CoursesContainer'
+import PlayCourse from './components/PlayCourse'
 import {
   BrowserRouter as Router,
   Switch,
@@ -53,6 +54,8 @@ export default class App extends Component {
          {/* <button onClick={(e)=>this.getPlaylist(e)}>Click me</button> */}
         
         {/* <CoursesContainer /> */}
+        <PlayCourse />
+
       </div>
       </Router>
     )

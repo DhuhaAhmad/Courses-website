@@ -4,7 +4,7 @@ import axios from "axios";
 // import About from './About'
 import Category from "./Category";
 import CoursesContainer from "./CoursesContainer";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class Categories extends Component {
   constructor(props) {
