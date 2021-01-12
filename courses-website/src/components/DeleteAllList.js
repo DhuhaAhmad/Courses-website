@@ -4,7 +4,7 @@ export default class DeleteAllList extends Component {
 
 
     handleDelete=()=>{
-        this.props.removeAllMyLearning()
+        this.props.removeAll()
     }
 
   render() {

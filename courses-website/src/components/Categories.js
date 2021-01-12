@@ -17,7 +17,7 @@ export default class Categories extends Component {
       // WDPlaylistItems: [],
       business : [],
       // BPlaylistItems : [],
-      // makeUp: [],
+      makeUp: [],
     };
     this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
     this.getBusinessCourses = this.getBusinessCourses.bind(this);
@@ -79,8 +79,9 @@ export default class Categories extends Component {
 };
 
   render() {
-      const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : this.props.myLearnig))
-      // const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : (this.state.filter === this.state.makeUp)))
+      const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment :
+       (this.state.filter === 'business'? this.state.business : (this.state.filter === 'makeup'?this.state.makeUp : (this.props.filter === 'mylearning'? this.props.myLearnig: this.props.complete))))
+    // const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : (this.state.filter === this.state.makeUp)))
     // store categories in var
       const toRender = <div> <Link
       to="/courses-container"
@@ -125,10 +126,15 @@ export default class Categories extends Component {
             {this.state.appear ? toRender : <Route
            exact path="/courses-container"
             render={(props) => (
-              <CoursesContainer {...props} course={courseArray}  
+              <CoursesContainer {...props} course={courseArray}
+                
               addToMyLearning={(e)=>this.props.addToMyLearning(e)} 
               filter={this.state.filter}
               islearning={this.state.islearning} 
+
+              // ===========Complete==========
+              handleAddToComplete={(e)=>this.props.handleAddToComplete(e)}
+              isComplete={this.props.isComplete}
               />
             )}
           />} {/**END IF statement */}

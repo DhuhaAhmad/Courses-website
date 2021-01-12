@@ -5,6 +5,7 @@ import StartCourse from './StartCourse'
 import '../App.css'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PlayCourse from './PlayCourse'
+import Complete from './Complete'
 
 export default class Course extends Component {
 
@@ -20,13 +21,16 @@ export default class Course extends Component {
                 <p>Course Title: {this.props.courseTitle}</p>
                 <p>Channel Name: {this.props.channelName}</p>
 
+
                 <AddToList addToMyLearning={(e)=>this.props.addToMyLearning(e)} 
-                handlelearning={this.props.handlelearning}
+                // handlelearning={this.props.handlelearning}
                 islearning={this.props.islearning}
                 />
-
+                <Complete  handleAddToComplete={(e)=>this.props.handleAddToComplete(e)}
+                    isComplete={this.props.isComplete}
+                />
                <Link to='/play-course'><StartCourse /></Link> 
-
+                
                
               
                 {/* Start icons or button */}

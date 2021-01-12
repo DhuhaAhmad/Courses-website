@@ -7,6 +7,7 @@ import About from './components/About'
 import CoursesContainer from './components/CoursesContainer'
 import PlayCourse from './components/PlayCourse'
 import MyLearning from './components/MyLearning'
+import CompletedCourse from './components/CompletedCourse'
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,8 +22,9 @@ export default class App extends Component {
   
     this.state = {
       myLearning:[],
-      islearning:false
-
+      islearning:false,
+      complete:[],
+      isComplete:false
     }
     // this.addToMyLearning=this.addToMyLearning.bind(this)
   }
@@ -39,13 +41,26 @@ console.log('Added to learnig')
 
   }
 
+  addToComplete=(course)=>{
+    const complete = this.state.complete.slice(0) //Create a copy of myLearning Array
+    const courseIndex = complete.indexOf(course)
+    complete.includes(course)? complete.splice(courseIndex,1) : complete.push(course)
+    this.setState({complete})
+    this.setState({isComplete: !this.setState.isComplete})
+    // console.log(myLearning)
+    console.log('Added to learnig')
+    
+      }
+
   removeAllMyLearning=()=>{
     this.setState({myLearning: []})
       }
+  removeAllcomplete=()=>{
+    this.setState({complete: []})
+      }
 
-  // componentDidMount(){
-  //   <Home />
-  // }
+
+
   render() {
     return (
       <Router>
@@ -57,7 +72,8 @@ console.log('Added to learnig')
         <li> <Link to='/'>Home</Link> </li> 
         <li> <Link to='/about'>About</Link></li>
         <li> <Link to='/categories'>Categories</Link></li>
-        <li> <Link to='/my-learning'>MyLearning</Link></li>
+        <li> <Link to='/my-learning'>My Learning</Link></li>
+        <li> <Link to='/complete-course'>Completed Courses</Link></li>
       </ul>
     </div>
         </nav>
@@ -68,18 +84,38 @@ console.log('Added to learnig')
         <Route
           exact  path='/categories'
             render={(props) => (
-              <Categories {...props} addToMyLearning={this.addToMyLearning} myLearnig={this.state.myLearnig} 
-              islearning={this.state.islearning} 
+              <Categories {...props} 
+              addToMyLearning={this.addToMyLearning}
+               myLearnig={this.state.myLearnig} 
+              islearning={this.state.islearning}
+              filter={'mylearning'}
+              // ===========Complete========
+              handleAddToComplete={this.addToComplete}
+              complete={this.state.complete}
+              isComplete={this.state.isComplete}
               /> )}
               />
+
         <Route
             path='/my-learning'
             render={(props) => (
-              <MyLearning {...props}  myLearning={this.state.myLearning} 
-              islearning={this.state.islearning} 
+              <MyLearning {...props}  
+              myLearning={this.state.myLearning} 
               addToMyLearning={this.addToMyLearning}
               islearning={this.state.islearning} 
               removeAllMyLearning={this.removeAllMyLearning}
+              /> )}
+              />
+
+        <Route
+            path='/complete-course'
+            render={(props) => (
+              <CompletedCourse {...props}
+              complete={this.state.complete} 
+               handleAddToComplete={this.addToComplete}
+              isComplete={this.state.isComplete}
+              removeAllcomplete={this.removeAllcomplete}
+
               /> )}
               />
 

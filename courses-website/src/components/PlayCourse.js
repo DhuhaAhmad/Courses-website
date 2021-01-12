@@ -129,7 +129,7 @@ export default class PlayCourse extends Component {
  - Add course to my learning list 
 
  ++++++++To do +++++++++
- - delete all marked
+ - Edit item ?????
  - delete all ????
 */ 
 

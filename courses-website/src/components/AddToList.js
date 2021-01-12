@@ -13,6 +13,7 @@ export default class AddToList extends Component {
       <div className="btn-floating btn-large waves-effect waves-light red">
          <i  onClick={this.handleLearning} className="material-icons">{isLearning}</i>
       </div>
+      
     );
   }
 }

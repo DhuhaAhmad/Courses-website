@@ -1,27 +1,25 @@
 import React, { Component } from 'react'
-// import CoursesContainer from './CoursesContainer'
 import Course from './Course'
 import DeleteAllList from './DeleteAllList'
 
-export default class MyLearning extends Component {
+export default class CompletedCourse extends Component {
     render() {
         
-
-        const learningCourses = this.props.myLearning.map((ele,i)=>{
+        const completeCourses = this.props.complete.map((ele,i)=>{
             return <Course url={ele.snippet.thumbnails.standard.url} 
             courseTitle={ele.snippet.title}
              channelName={ele.snippet.channelTitle}
              playListId={ele.id}
-             addToMyLearning={(e)=>this.props.addToMyLearning(ele)}
+             handleAddToComplete={(e)=>this.props.handleAddToComplete(ele)}
             //  handlelearning={this.handlelearning}
-             islearning={this.props.islearning}
+             islearning={this.props.isComplete}
              key={i}
              />
             })
         return (
             <div>
-                <DeleteAllList removeAll={this.props.removeAllMyLearning} />
-                {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
+                <DeleteAllList removeAll={this.props.removeAllcomplete} />
+                {completeCourses.length >0 ? completeCourses: <h1>No completed course </h1>}
             </div>
         )
     }

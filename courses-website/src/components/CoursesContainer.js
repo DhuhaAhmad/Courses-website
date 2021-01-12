@@ -25,6 +25,9 @@ export default class CoursesContainer extends Component {
             playListId={ele.id}
             addToMyLearning={(e)=>this.props.addToMyLearning(ele)}
             islearning={this.props.islearning}
+            // ========Complete==========
+            handleAddToComplete={(e)=>this.props.handleAddToComplete(ele)}
+            isComplete={this.props.isComplete}
             key={i}
             />
 
