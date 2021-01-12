@@ -8,16 +8,11 @@ export default class CoursesContainer extends Component {
     constructor(props) {
         super(props)
     
-        this.state = {
-            islearning:false
-        }
+        // this.state = {
+        //     islearning:false
+        // }
     }
 
-    handlelearning =()=>{
-        this.setState({islearning: !this.setState.islearning})
-        // this.props.addToMyLearning(ele)
-        console.log('add to learning list')
-    }
 
 
     render() {
@@ -29,8 +24,7 @@ export default class CoursesContainer extends Component {
             channelName={ele.snippet.channelTitle}
             playListId={ele.id}
             addToMyLearning={(e)=>this.props.addToMyLearning(ele)}
-            handlelearning={this.handlelearning}
-            islearning={this.state.islearning}
+            islearning={this.props.islearning}
             key={i}
             />
 

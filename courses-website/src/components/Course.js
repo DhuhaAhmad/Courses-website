@@ -21,7 +21,8 @@ export default class Course extends Component {
 
                 <AddToList addToMyLearning={(e)=>this.props.addToMyLearning(e)} 
                 handlelearning={this.props.handlelearning}
-                islearnig={this.props.islearnig}/>
+                islearning={this.props.islearning}
+                />
 
                <Link to='/play-course'><StartCourse /></Link> 
 

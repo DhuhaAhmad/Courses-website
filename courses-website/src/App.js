@@ -20,17 +20,20 @@ export default class App extends Component {
     super(props)
   
     this.state = {
-      myLearning:[]
+      myLearning:[],
+      islearning:false
+
     }
     // this.addToMyLearning=this.addToMyLearning.bind(this)
   }
   
 
 addToMyLearning=(course)=>{
-const myLearning = this.state.myLearning.slice(0) //Create a copy of faves Array
+const myLearning = this.state.myLearning.slice(0) //Create a copy of myLearning Array
 const courseIndex = myLearning.indexOf(course)
 myLearning.includes(course)? myLearning.splice(courseIndex,1) : myLearning.push(course)
 this.setState({myLearning})
+this.setState({islearning: !this.setState.islearning})
 // console.log(myLearning)
 console.log('Added to learnig')
 
@@ -40,8 +43,8 @@ console.log('Added to learnig')
       <Router>
       <div className='container'>
       <nav >
-        <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+        <div className="nav-wrapper">
+      {/* <a href="#" class="brand-logo">Logo</a> */}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li> <Link to='/'>Home</Link> </li> 
         <li> <Link to='/about'>About</Link></li>
@@ -57,12 +60,18 @@ console.log('Added to learnig')
         <Route
             path='/categories'
             render={(props) => (
-              <Categories {...props} addToMyLearning={this.addToMyLearning} myLearnig={this.state.myLearnig} /> )}
+              <Categories {...props} addToMyLearning={this.addToMyLearning} myLearnig={this.state.myLearnig} 
+              islearning={this.state.islearning} 
+              /> )}
               />
         <Route
             path='/my-learning'
             render={(props) => (
-              <MyLearning {...props}  myLearnig={this.state.myLearnig}/> )}
+              <MyLearning {...props}  myLearning={this.state.myLearning} 
+              islearning={this.state.islearning} 
+              addToMyLearning={this.addToMyLearning}
+              islearning={this.state.islearning} 
+              /> )}
               />
 
       </div>

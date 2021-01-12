@@ -17,7 +17,7 @@ export default class Categories extends Component {
       // WDPlaylistItems: [],
       business : [],
       // BPlaylistItems : [],
-      makeUp: [],
+      // makeUp: [],
     };
     this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
     this.getBusinessCourses = this.getBusinessCourses.bind(this);
@@ -79,7 +79,8 @@ export default class Categories extends Component {
 };
 
   render() {
-      const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : this.state.makeUp))
+      const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : this.props.myLearnig))
+      // const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : (this.state.filter === this.state.makeUp)))
     // store categories in var
       const toRender = <div> <Link
       to="/courses-container"
@@ -126,7 +127,9 @@ export default class Categories extends Component {
             render={(props) => (
               <CoursesContainer {...props} course={courseArray}  
               addToMyLearning={(e)=>this.props.addToMyLearning(e)} 
-              filter={this.state.filter}/>
+              filter={this.state.filter}
+              islearning={this.state.islearning} 
+              />
             )}
           />} {/**END IF statement */}
 
