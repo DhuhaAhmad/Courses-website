@@ -38,8 +38,8 @@ export default class Categories extends Component {
           // console.log(response)
           // console.log(response.data)
           //to get URL
-          const sinlePlaylist = response.data.items[0];
-          webDevelpment.push(sinlePlaylist);
+          const singlePlaylist = response.data.items[0];
+          webDevelpment.push(singlePlaylist);
           this.setState({ webDevelpment });
           this.setState({appear:false})
 
@@ -66,8 +66,8 @@ export default class Categories extends Component {
         // console.log(response)
         // console.log(response.data)
         //to get URL
-        const sinlePlaylist = response.data.items[0];
-        business.push(sinlePlaylist);
+        const singlePlaylist = response.data.items[0];
+        business.push(singlePlaylist);
         this.setState({ business });
         this.setState({appear:false})
        

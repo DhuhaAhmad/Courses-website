@@ -15,7 +15,7 @@ export default class PlayList extends Component {
 
         })
         return (
-            <div>
+            <div className='play-list-window'>
                 <ul>
                     {allVideoList}
                 </ul>

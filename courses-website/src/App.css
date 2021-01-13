@@ -78,6 +78,15 @@ li img{
   width: 5%;
 }
 
-.remove-under-line{
-  text-decoration: none;
+.channel-pic{
+
+  width: 30px;
+  height: 15px;
+  border-radius: 30px;
+}
+
+.play-list-window{
+    width: 400px;
+    height: 600px;
+    overflow: scroll;
 }
