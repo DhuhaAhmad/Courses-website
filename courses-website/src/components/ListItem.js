@@ -10,7 +10,7 @@ export default class ListItem extends Component {
     return (
       <div>
         <li onClick={this.getUrl}>
-          <img src={this.props.url} />
+          <img id='item-img' src={this.props.url} />
           <p>{this.props.title}</p>
         </li>
       </div>

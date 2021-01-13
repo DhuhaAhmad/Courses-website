@@ -102,3 +102,20 @@ li img{
   float: left;
   margin: 20px;
 }
+
+.home{
+  background-color: rgba(0, 0, 0, 0.034);
+}
+
+#video {
+  border: 2px groove darkblue;
+  padding: 10px;
+  width: auto;
+  height: auto;
+}
+
+#item-img{
+  width: 20%;
+  height: 20%;
+display: inline;
+}

@@ -51,7 +51,7 @@ export default class Home extends Component {
     render() {
         return (
             <Router>
-            <div>
+            <div className="home">
             {this.state.randomRuete}  
             {/* To Categories page   */}
           <Link to='/categories'><button>GET STARTED</button></Link> 

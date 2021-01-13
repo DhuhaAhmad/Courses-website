@@ -40,8 +40,10 @@ export default class Course extends Component {
     this.getChannelInfo();
   }
 
+  
   toDisappear = () => {
-    document.querySelector(".box").style.display = "none";
+      
+    document.querySelector(".card").style.display = "none";
     console.log("diappear");
   };
 
@@ -74,11 +76,11 @@ export default class Course extends Component {
           </div>
 
           <AddToList
-            addToMyLearning={(e) => this.props.addToMyLearning(e)}
+            addToMyLearning={this.props.addToMyLearning}
             islearning={this.props.islearning}
           />
           <Complete
-            handleAddToComplete={(e) => this.props.handleAddToComplete(e)}
+            handleAddToComplete={ this.props.handleAddToComplete}
             isComplete={this.props.isComplete}
           />
           <Link to="/play-course" onClick={this.toDisappear}>

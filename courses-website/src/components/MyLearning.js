@@ -12,9 +12,11 @@ export default class MyLearning extends Component {
             courseTitle={ele.snippet.title}
              channelName={ele.snippet.channelTitle}
              playListId={ele.id}
-             addToMyLearning={(e)=>this.props.addToMyLearning(ele)}
+             addToMyLearning={()=>this.props.addToMyLearning(ele)}
+             handleAddToComplete={()=>this.props.handleAddToComplete(ele)}
+
             //  handlelearning={this.handlelearning}
-             islearning={this.props.islearning}
+             islearning={true}
              key={i}
              />
             })

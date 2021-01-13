@@ -4,8 +4,8 @@ import ReactPlayer from 'react-player'
 export default class Video extends Component {
     render() {
         return (
-            <div>
-                <ReactPlayer controls url={this.props.videoUrl}/>
+            <div >
+                <ReactPlayer  id='video' controls url={this.props.videoUrl}/>
             </div>
         )
     }

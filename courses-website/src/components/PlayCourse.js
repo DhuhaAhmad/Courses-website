@@ -48,7 +48,7 @@ export default class PlayCourse extends Component {
               // temp1.items[0].snippet.resourceId.videoId
            return {
              title:element.snippet.title,
-             image:element.snippet.thumbnails.default.url,
+             image:element.snippet.thumbnails.standard.url,
              videoId: element.snippet.resourceId.videoId
             }
 

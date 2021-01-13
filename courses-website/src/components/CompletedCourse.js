@@ -10,9 +10,9 @@ export default class CompletedCourse extends Component {
             courseTitle={ele.snippet.title}
              channelName={ele.snippet.channelTitle}
              playListId={ele.id}
-             handleAddToComplete={(e)=>this.props.handleAddToComplete(ele)}
-            //  handlelearning={this.handlelearning}
-            isComplete={this.props.isComplete}
+             handleAddToComplete={()=>this.props.handleAddToComplete(ele)}
+            addToMyLearning={(e)=>this.props.addToMyLearning(ele)}
+            isComplete={true}
              key={i}
              />
             })

@@ -23,10 +23,10 @@ export default class CoursesContainer extends Component {
             channelName={ele.snippet.channelTitle}
             playListId={ele.id}
             channelId={ele.snippet.channelId}
-            addToMyLearning={(e)=>this.props.addToMyLearning(ele)}
+            addToMyLearning={()=>this.props.addToMyLearning(ele)}
             islearning={this.props.islearning}
             // ========Complete==========
-            handleAddToComplete={(e)=>this.props.handleAddToComplete(ele)}
+            handleAddToComplete={()=>this.props.handleAddToComplete(ele)}
             isComplete={this.props.isComplete}
             key={i}
             />

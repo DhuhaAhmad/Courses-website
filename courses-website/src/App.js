@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import ReactPlayer from 'react-player'
 import Home from './components/Home'
 import Categories from './components/Categories'
 import About from './components/About'
-import CoursesContainer from './components/CoursesContainer'
-import PlayCourse from './components/PlayCourse'
 import MyLearning from './components/MyLearning'
 import CompletedCourse from './components/CompletedCourse'
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Link
 } from "react-router-dom";
@@ -26,7 +22,8 @@ export default class App extends Component {
       complete:[],
       isComplete:false
     }
-    // this.addToMyLearning=this.addToMyLearning.bind(this)
+    this.addToMyLearning=this.addToMyLearning.bind(this)
+    this.addToComplete=this.addToComplete.bind(this)
   }
   
 
@@ -35,7 +32,7 @@ const myLearning = this.state.myLearning.slice(0) //Create a copy of myLearning 
 const courseIndex = myLearning.indexOf(course)
 myLearning.includes(course)? myLearning.splice(courseIndex,1) : myLearning.push(course)
 this.setState({myLearning})
-this.setState({islearning: !this.setState.islearning})
+// this.setState({islearning: !this.setState.islearning})
 // console.log(myLearning)
 console.log('Added to learnig')
 
@@ -46,7 +43,7 @@ console.log('Added to learnig')
     const courseIndex = complete.indexOf(course)
     complete.includes(course)? complete.splice(courseIndex,1) : complete.push(course)
     this.setState({complete})
-    this.setState({isComplete: !this.setState.isComplete})
+    // this.setState({isComplete: !this.setState.isComplete})
     // console.log(myLearning)
     console.log('Added to learnig')
     
@@ -59,6 +56,7 @@ console.log('Added to learnig')
     this.setState({complete: []})
       }
 
+    
 
 
   render() {
@@ -85,12 +83,12 @@ console.log('Added to learnig')
           exact  path='/categories'
             render={(props) => (
               <Categories {...props} 
-              addToMyLearning={(e)=>this.addToMyLearning(e)}
+              addToMyLearning={this.addToMyLearning}
                myLearnig={this.state.myLearnig} 
               islearning={this.state.islearning}
               filter={'mylearning'}
               // ===========Complete========
-              handleAddToComplete={(e)=>this.addToComplete(e)}
+              handleAddToComplete={this.addToComplete}
               complete={this.state.complete}
               isComplete={this.state.isComplete}
               /> )}
@@ -104,6 +102,10 @@ console.log('Added to learnig')
               addToMyLearning={this.addToMyLearning}
               islearning={this.state.islearning} 
               removeAllMyLearning={this.removeAllMyLearning}
+
+              handleAddToComplete={this.addToComplete}
+              complete={this.state.complete}
+              isComplete={this.state.isComplete}
               /> )}
               />
 
@@ -115,6 +117,11 @@ console.log('Added to learnig')
                handleAddToComplete={this.addToComplete}
               isComplete={this.state.isComplete}
               removeAllcomplete={this.removeAllcomplete}
+
+
+              addToMyLearning={this.addToMyLearning}
+              myLearnig={this.state.myLearnig} 
+             islearning={this.state.islearning}
 
               /> )}
               />

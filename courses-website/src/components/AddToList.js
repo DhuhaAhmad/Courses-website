@@ -4,8 +4,11 @@ export default class AddToList extends Component {
 
 
   handleLearning=(e)=>{
-    // this.props.handlelearning()
-    this.props.addToMyLearning(e)
+    console.log(this.props)
+
+    this.props.addToMyLearning()
+   
+
   }
   render() {
     const isLearning = this.props.islearning ? 'remove' : 'add'
