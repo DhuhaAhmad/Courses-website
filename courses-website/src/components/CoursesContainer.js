@@ -14,7 +14,6 @@ export default class CoursesContainer extends Component {
     }
 
 
-
     render() {
 
         const allCourses = this.props.course.map((ele,i)=>{

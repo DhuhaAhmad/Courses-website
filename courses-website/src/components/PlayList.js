@@ -16,9 +16,9 @@ export default class PlayList extends Component {
         })
         return (
             <div className='play-list-window'>
-                <ul>
+                <ol>
                     {allVideoList}
-                </ul>
+                </ol>
             </div>
         )
     }

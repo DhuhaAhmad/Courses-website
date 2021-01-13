@@ -64,7 +64,7 @@ console.log('Added to learnig')
   render() {
     return (
       <Router>
-      <div className='container'>
+      <div className=' App'>
       <nav >
         <div className="nav-wrapper">
       {/* <a href="#" class="brand-logo">Logo</a> */}
@@ -85,12 +85,12 @@ console.log('Added to learnig')
           exact  path='/categories'
             render={(props) => (
               <Categories {...props} 
-              addToMyLearning={this.addToMyLearning}
+              addToMyLearning={(e)=>this.addToMyLearning(e)}
                myLearnig={this.state.myLearnig} 
               islearning={this.state.islearning}
               filter={'mylearning'}
               // ===========Complete========
-              handleAddToComplete={this.addToComplete}
+              handleAddToComplete={(e)=>this.addToComplete(e)}
               complete={this.state.complete}
               isComplete={this.state.isComplete}
               /> )}

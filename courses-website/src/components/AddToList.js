@@ -5,7 +5,7 @@ export default class AddToList extends Component {
 
   handleLearning=(e)=>{
     // this.props.handlelearning()
-    this.props.addToMyLearning()
+    this.props.addToMyLearning(e)
   }
   render() {
     const isLearning = this.props.islearning ? 'remove' : 'add'

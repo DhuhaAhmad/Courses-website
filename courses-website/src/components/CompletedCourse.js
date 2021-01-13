@@ -12,7 +12,7 @@ export default class CompletedCourse extends Component {
              playListId={ele.id}
              handleAddToComplete={(e)=>this.props.handleAddToComplete(ele)}
             //  handlelearning={this.handlelearning}
-             islearning={this.props.isComplete}
+            isComplete={this.props.isComplete}
              key={i}
              />
             })

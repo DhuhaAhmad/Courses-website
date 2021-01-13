@@ -1,6 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: bisque;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -89,4 +95,10 @@ li img{
     width: 400px;
     height: 600px;
     overflow: scroll;
+}
+
+.card{
+  width: 200px;
+  float: left;
+  margin: 20px;
 }
