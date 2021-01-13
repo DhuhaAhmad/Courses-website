@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
-import ReactPlayer from 'react-player'
 import Course from './Course'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PlayCourse from "./PlayCourse";
 
 export default class CoursesContainer extends Component {
 
-    constructor(props) {
-        super(props)
-    
-        // this.state = {
-        //     islearning:false
-        // }
+constructor(props) {
+    super(props)
+
+    this.state = {
+         toggleRoute:false,
+         playListId:''
+         
     }
+}
+
+handleToggle=(id)=>{
+
+    this.setState({toggleRoute:!this.state.toggleRoute,
+        playListId:id
+    })
+
+}
+
 
 
     render() {
@@ -28,14 +39,30 @@ export default class CoursesContainer extends Component {
             // ========Complete==========
             handleAddToComplete={()=>this.props.handleAddToComplete(ele)}
             isComplete={this.props.isComplete}
+            handleToggle={this.handleToggle}
             key={i}
             />
 
         })
         return (
+            <Router>
             <div>
-              {allCourses}
+            <Link to="/play-course"></Link>
+            {this.state.toggleRoute ? <Route
+          path="/play-course"
+          render={(props) => (
+            <PlayCourse {...props} playListId={this.state.playListId} />
+          )}
+        />  : allCourses}
             </div>
+            </Router>
         )
     }
 }
+
+{/* <Route
+          path="/play-course"
+          render={(props) => (
+            <PlayCourse {...props} playListId={this.props.playListId} />
+          )}
+        /> */}

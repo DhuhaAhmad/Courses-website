@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import CourseImage from "./CourseImage";
 import AddToList from "./AddToList";
-import StartCourse from "./StartCourse";
 import "../App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PlayCourse from "./PlayCourse";
 import Complete from "./Complete";
 import axios from "axios";
 import ChannelPic from "./ChannelPic";
+
+
 
 export default class Course extends Component {
   constructor(props) {
@@ -40,12 +41,9 @@ export default class Course extends Component {
     this.getChannelInfo();
   }
 
-  
-  toDisappear = () => {
-      
-    document.querySelector(".card").style.display = "none";
-    console.log("diappear");
-  };
+  handleToggle = () =>{
+    this.props.handleToggle(this.props.playListId)
+  }
 
   render() {
     // const toRender = <div></div>
@@ -70,8 +68,7 @@ export default class Course extends Component {
               Card Title<i class="material-icons right">close</i>
             </span>
             <p>
-              Here is some more information about this product that is only
-              revealed once clicked on.
+              des
             </p>
           </div>
 
@@ -83,20 +80,13 @@ export default class Course extends Component {
             handleAddToComplete={ this.props.handleAddToComplete}
             isComplete={this.props.isComplete}
           />
-          <Link to="/play-course" onClick={this.toDisappear}>
-            <StartCourse />
+          <Link to="/play-course" onClick={this.handleToggle}>
+          <button className='start'>Start</button>
           </Link>
 
-          {/* Start icons or button */}
         </div>
-
-        <Route
-          path="/play-course"
-          render={(props) => (
-            <PlayCourse {...props} playListId={this.props.playListId} />
-          )}
-        />
       </Router>
     );
   }
 }
+

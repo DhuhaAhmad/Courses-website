@@ -78,7 +78,6 @@ console.log('Added to learnig')
 
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
-        {/* <Route path='/categories' component={Categories}   /> */}
         <Route
           exact  path='/categories'
             render={(props) => (
@@ -131,4 +130,3 @@ console.log('Added to learnig')
     )
   }
 }
-

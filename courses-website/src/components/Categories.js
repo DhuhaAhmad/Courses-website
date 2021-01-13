@@ -146,7 +146,6 @@ export default class Categories extends Component {
       const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment :
        (this.state.filter === 'business'? this.state.business : (this.state.filter === 'language'? this.state.language : 
        (this.state.filter === 'cooking'? this.state.cooking: (this.props.filter === 'mylearning'? this.props.myLearnig: this.props.complete)))))
-    // const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment : (this.state.filter === 'business'? this.state.business : (this.state.filter === this.state.makeUp)))
     // store categories in var
       const toRender = <div> <Link
       to="/courses-container"

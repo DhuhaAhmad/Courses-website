@@ -112,13 +112,13 @@ export default class PlayCourse extends Component {
                 <Video videoUrl={this.state.videoUrl} />
             </div>
         )
-    }iuy
+    }
 }
 
 /**
  1- get all video list items 
  2- find the videoID 
- 3- use another API tho pass videoID to get 
+ 3- use another API tho pass videoID to get each video
  4- get video link
  =======================================
 
