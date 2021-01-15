@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Categories from './Categories'
+import '../App.css'
 import {
     BrowserRouter as Router,
     Switch,
@@ -52,10 +53,9 @@ export default class Home extends Component {
         return (
             <Router>
             <div className="home">
-            {this.state.randomRuete}  
+           <p className='quete'>{this.state.randomRuete} </p>  
             {/* To Categories page   */}
           <Link to='/categories'><button>GET STARTED</button></Link> 
-          {/* <Route exact path='/' component={Home}></Route>  */}
           <Route path='/categories' component={Categories}></Route> 
 
             </div>

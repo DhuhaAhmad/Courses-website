@@ -18,7 +18,7 @@ export default class ListItem extends Component {
     }
   render() {
 
-    const active = this.state.activeItem? '.active-item' : ''
+    const active = this.state.activeItem? 'active-item' : ''
     return (
       <div >
         <li id='list-item' className={active} onClick={this.getUrl}>

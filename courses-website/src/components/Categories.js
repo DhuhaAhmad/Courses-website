@@ -3,6 +3,10 @@ import axios from "axios";
 import Category from "./Category";
 import CoursesContainer from "./CoursesContainer";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import web from '../image/web.jpg'
+import business from '../image/business.jpg'
+import cooking from '../image/cooking.jpg'
+import language from '../image/language.jpg'
 
 export default class Categories extends Component {
   constructor(props) {
@@ -29,7 +33,9 @@ export default class Categories extends Component {
       "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cplayer&id=PL0eyrZgxdwhwNC5ppZo_dYGVjerQY3xYU&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0";
     const url3 =
       "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cplayer&id=PL4cUxeGkcC9i9Ae2D9Ee1RvylH38dKuET&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0";
-    const Api = [url, url2,url3];
+    const url4 =
+      "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cplayer&id=PLBlnK6fEyqRiVhbXDGLXDk_OQAeuVcp2O&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0";
+    const Api = [url, url2,url3,url4];
     Api.forEach((ele) => {
       axios
         .get(ele)
@@ -148,7 +154,7 @@ export default class Categories extends Component {
     >
       {" "}
       <Category
-        url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+        url={web}
         category={"Web Development"}
       />{" "}
     </Link>
@@ -159,7 +165,7 @@ export default class Categories extends Component {
       }}
     >
     <Category
-      url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+      url={business}
       category={"Business"}
     />
     </Link>
@@ -171,7 +177,7 @@ export default class Categories extends Component {
     >
 
     <Category
-      url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+      url={language}
       category={"language"}
     />
     </Link> 
@@ -184,7 +190,7 @@ export default class Categories extends Component {
     >
 
     <Category
-      url={"https://hackernoon.com/images/z2xg2bpo.jpg"}
+      url={cooking}
       category={"cooking"}
     />
     </Link>

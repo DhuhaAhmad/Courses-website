@@ -81,12 +81,13 @@ export default class PlayCourse extends Component {
                 console.log(response.data)
                 
                 //get video url 
-              const url =  response.data.items[0].player.embedHtml
-             const urlStart = url.indexOf('src=') + 5
-             const end = url.substring(urlStart).indexOf('"') + urlStart
-             const videoUrl = url.substring(urlStart,end)
-             console.log(videoUrl)
-             this.setState({videoUrl})
+              const url =  response.data.items
+              console.log(url)
+            //  const urlStart = url.indexOf('src=') + 5
+            //  const end = url.substring(urlStart).indexOf('"') + urlStart
+            //  const videoUrl = url.substring(urlStart,end)
+            //  console.log(videoUrl)
+            //  this.setState({videoUrl})
 
               })
               .catch((error) => {

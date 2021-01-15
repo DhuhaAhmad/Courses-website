@@ -4,6 +4,7 @@ import '../App.css'
 
 
 export default class PlayList extends Component {
+    
     render() {
 
         const allVideoList = this.props.videoInfo.map((ele,i)=>{
