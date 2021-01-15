@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ListItem from './ListItem'
+import '../App.css'
 
 
 export default class PlayList extends Component {

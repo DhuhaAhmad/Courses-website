@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import Home from './Home'
-// import About from './About'
 import Category from "./Category";
 import CoursesContainer from "./CoursesContainer";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -16,8 +14,6 @@ export default class Categories extends Component {
       webDevelpment: [],
       business : [],
       language: [],
-      fitnessAndHealth: [],
-      personalDevelopment: [],
       cooking: []
     };
     this.getWebDevelpmentCourses = this.getWebDevelpmentCourses.bind(this);
@@ -139,9 +135,6 @@ export default class Categories extends Component {
 };
 
 
-
-
-
   render() {
       const courseArray = (this.state.filter === 'web development' ? this.state.webDevelpment :
        (this.state.filter === 'business'? this.state.business : (this.state.filter === 'language'? this.state.language : 
@@ -213,9 +206,14 @@ export default class Categories extends Component {
               // ===========Complete==========
               handleAddToComplete={this.props.handleAddToComplete}
               isComplete={this.props.isComplete}
+
+              // ==========To get playlistid to start course
+              // handleToggle={this.props.handleToggle}
               />
             )}
           />} {/**END IF statement */}
+
+          
 
          
           
@@ -238,3 +236,25 @@ export default class Categories extends Component {
           //    webDevelpment.push(playListUrl)
           //    this.setState({webDevelpment})
           //    console.log(this.state.webDevelpment)
+
+
+          // render before toggleRoute
+
+          // {this.state.appear ? toRender : <Route
+          //   exact path="/courses-container"
+          //    render={(props) => (
+          //      <CoursesContainer {...props} course={courseArray}
+                 
+          //      addToMyLearning={this.props.addToMyLearning} 
+          //      filter={this.state.filter}
+          //      islearning={this.state.islearning} 
+ 
+          //      // ===========Complete==========
+          //      handleAddToComplete={this.props.handleAddToComplete}
+          //      isComplete={this.props.isComplete}
+ 
+          //      // ==========To get playlistid to start course
+          //      handleToggle={this.handleToggle}
+          //      />
+          //    )}
+          //  />}

@@ -49,7 +49,7 @@ export default class PlayCourse extends Component {
            return {
              title:element.snippet.title,
              image:element.snippet.thumbnails.standard.url,
-             videoId: element.snippet.resourceId.videoId
+             videoid: element.snippet.resourceId.videoId
             }
 
           });
@@ -72,44 +72,42 @@ export default class PlayCourse extends Component {
         // this.state.videoId.forEach(ele=>{
 
             const url =
-            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cplayer&id=${id}&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0`;
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cplayer&id=${id}&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0`;
+          //  ' https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cplayer&id=_ykSNapZAVE&key=AIzaSyA8XWtvKhZ_dv6sGdbvXne_A5oxgeYCxLc'
             axios
               .get(url)
               .then((response) => {
-                // console.log(response)
-                // console.log(response.data)
+                console.log(response)
+                console.log(response.data)
                 
                 //get video url 
               const url =  response.data.items[0].player.embedHtml
              const urlStart = url.indexOf('src=') + 5
              const end = url.substring(urlStart).indexOf('"') + urlStart
              const videoUrl = url.substring(urlStart,end)
-            //  console.log(videoUrl)
+             console.log(videoUrl)
              this.setState({videoUrl})
 
               })
               .catch((error) => {
                 console.log(`Error: ${error}`);
-              });
-
-        // })
-    
+              });    
  
     };
 
 
     componentDidMount(){
         this.getListItems()
-    }
-
+          }
 
 
     render() {
 
         return (
-            <div>
+            <div className='play-course'>
                 <PlayList videoInfo={this.state.videoInfo}  getUrl={this.getOneVideo}/>
                 <Video videoUrl={this.state.videoUrl} />
+                heerree {this.props.playListId}
             </div>
         )
     }

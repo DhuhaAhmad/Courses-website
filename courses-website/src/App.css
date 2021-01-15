@@ -95,6 +95,31 @@ li img{
     width: 400px;
     height: 600px;
     overflow: scroll;
+    background-color: lightgrey;
+    /* float: left; */
+    margin:auto;
+    position: absolute;
+    top: 5em;
+    left: 350px;
+
+}
+
+#video {
+  border: 2px groove darkblue;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 12em;
+  right: -15px;
+}
+.video-conainer{
+  float: left;
+}
+
+.play-course{
+  /* max-width: 900px; */
+  position: relative;
 }
 
 .card{
@@ -107,15 +132,30 @@ li img{
   background-color: rgba(0, 0, 0, 0.034);
 }
 
-#video {
-  border: 2px groove darkblue;
-  padding: 10px;
-  width: auto;
-  height: auto;
+#list-item{
+display: flex;
+border: 1px solid ;
+justify-content: center;
+align-items: center;
+margin-bottom: 10px;
+margin-left: -40px;
 }
 
 #item-img{
   width: 20%;
-  height: 20%;
-display: inline;
+  height: 20%
+
 }
+
+#item-title{
+  font-size: medium;
+
+}
+
+#list-item:hover{
+ background-color: mediumslateblue;
+  }
+
+  .active-item{
+    background-color: mediumslateblue;
+  }

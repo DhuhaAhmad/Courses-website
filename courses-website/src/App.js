@@ -8,8 +8,12 @@ import CompletedCourse from './components/CompletedCourse'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect,
+  Switch
 } from "react-router-dom";
+
+import PlayCourse from './components/PlayCourse'
 
 export default class App extends Component {
 
@@ -17,6 +21,8 @@ export default class App extends Component {
     super(props)
   
     this.state = {
+      // togglePlayRoute:false,
+      // playListId:'',
       myLearning:[],
       islearning:false,
       complete:[],
@@ -57,9 +63,17 @@ console.log('Added to learnig')
       }
 
     
+      // handleToggle=(playListId)=>{
 
+      //   this.setState(
+      //       {togglePlayRoute:!this.state.togglePlayRoute,
+      //       playListId:playListId
+      //   })
+      
+      // }
 
   render() {
+    
     return (
       <Router>
       <div className=' App'>
@@ -78,6 +92,10 @@ console.log('Added to learnig')
 
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
+        {/* <Link to="/play-course"></Link> */}
+
+    
+
         <Route
           exact  path='/categories'
             render={(props) => (
@@ -90,9 +108,49 @@ console.log('Added to learnig')
               handleAddToComplete={this.addToComplete}
               complete={this.state.complete}
               isComplete={this.state.isComplete}
+              // =====toggle play course route=====
+              // handleToggle={this.handleToggle}
               /> )}
               />
 
+            {/* <Route path="/play-course"
+                  render={(props) => (
+                    <PlayCourse {...props} playListId={this.state.playListId} />
+                  )} />  */}
+{/* محاولااات فاشلة */}
+{/* <Switch>
+  <Redirect from="/courses-container" to="/play-course" />
+   <Route path="/play-course"
+      render={(props) => (
+        <PlayCourse {...props} playListId={this.state.playListId} />
+    )} />
+   
+</Switch> */}
+
+              {/* ====================================== */}
+
+      {/* {this.state.togglePlayRoute?  <Route
+          exact  path='/categories'
+            render={(props) => (
+              <Categories {...props} 
+              addToMyLearning={this.addToMyLearning}
+               myLearnig={this.state.myLearnig} 
+              islearning={this.state.islearning}
+              filter={'mylearning'}
+              // ===========Complete========
+              handleAddToComplete={this.addToComplete}
+              complete={this.state.complete}
+              isComplete={this.state.isComplete}
+              // =====toggle play course route=====
+              handleToggle={this.handleToggle}
+              /> )}
+              />  : <Route
+              path="/play-course"
+              render={(props) => (
+                <PlayCourse {...props} playListId={this.state.playListId} />
+              )}
+              /> } */}
+       
         <Route
             path='/my-learning'
             render={(props) => (
@@ -124,6 +182,11 @@ console.log('Added to learnig')
 
               /> )}
               />
+
+
+              {/* <PlayCourse /> */}
+
+              {/* <iframe width="480" height="360" src="//www.youtube.com/embed/_ykSNapZAVE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
       </div>
       </Router>

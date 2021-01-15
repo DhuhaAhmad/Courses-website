@@ -8,23 +8,23 @@ import PlayCourse from "./PlayCourse";
 export default class MyLearning extends Component {
 
 
-    constructor(props) {
-        super(props)
+    // constructor(props) {
+    //     super(props)
     
-        this.state = {
-             toggleRoute:false,
-             playListId:''
+    //     this.state = {
+    //          toggleRoute:false,
+    //          playListId:''
              
-        }
-    }
+    //     }
+    // }
     
-    handleToggle=(id)=>{
+    // handleToggle=(id)=>{
     
-        this.setState({toggleRoute:!this.state.toggleRoute,
-            playListId:id
-        })
+    //     this.setState({toggleRoute:!this.state.toggleRoute,
+    //         playListId:id
+    //     })
     
-    }
+    // }
 
 
     render() {
@@ -38,7 +38,7 @@ export default class MyLearning extends Component {
              addToMyLearning={()=>this.props.addToMyLearning(ele)}
              handleAddToComplete={()=>this.props.handleAddToComplete(ele)}
              islearning={true}
-             handleToggle={this.handleToggle}
+            //  handleToggle={this.handleToggle}
              key={i}
              />
             })
@@ -46,7 +46,7 @@ export default class MyLearning extends Component {
         return (
             <Router>
             <div>
-            <Link to="/play-course"></Link>
+            {/* <Link to="/play-course"></Link>
 
                 {this.state.toggleRoute ?  <Route
           path="/play-course"
@@ -56,9 +56,9 @@ export default class MyLearning extends Component {
         /> : (<div>
             <DeleteAllList removeAll={this.props.removeAllMyLearning} />
             {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
-        </div>)}
-
-                {/* {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>} */}
+        </div>)} */}
+<DeleteAllList removeAll={this.props.removeAllMyLearning} />
+                {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
             </div>
              </Router>
         )
