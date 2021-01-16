@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import CourseImage from "./CourseImage";
+// import CourseImage from "./CourseImage";
 import AddToList from "./AddToList";
 import "../App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import PlayCourse from "./PlayCourse";
+// import PlayCourse from "./PlayCourse";
 import Complete from "./Complete";
 import axios from "axios";
 import ChannelPic from "./ChannelPic";
@@ -46,12 +46,11 @@ export default class Course extends Component {
   }
 
   render() {
-    // const toRender = <div></div>
     return (
       <Router>
         <div class="card">
           <div class="card-image waves-effect waves-block waves-light">
-            <CourseImage url={this.props.url} />
+            <img src={this.props.url} />
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
@@ -65,10 +64,10 @@ export default class Course extends Component {
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">
-              Card Title<i class="material-icons right">close</i>
+              Course description<i class="material-icons right">close</i>
             </span>
             <p>
-              des
+              {this.props.description}
             </p>
           </div>
 

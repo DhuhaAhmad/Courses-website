@@ -5,6 +5,7 @@ import Categories from './components/Categories'
 import About from './components/About'
 import MyLearning from './components/MyLearning'
 import CompletedCourse from './components/CompletedCourse'
+import Plan from './components/Plan'
 import './App.css'
 
 import {
@@ -12,6 +13,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+// import PlayCourse from './components/PlayCourse'
 
 // import PlayCourse from './components/PlayCourse'
 
@@ -49,8 +51,6 @@ console.log('Added to learnig')
     const courseIndex = complete.indexOf(course)
     complete.includes(course)? complete.splice(courseIndex,1) : complete.push(course)
     this.setState({complete})
-    // this.setState({isComplete: !this.setState.isComplete})
-    // console.log(myLearning)
     console.log('Added to learnig')
     
       }
@@ -78,6 +78,7 @@ console.log('Added to learnig')
         <li> <Link to='/categories'>Categories</Link></li>
         <li> <Link to='/my-learning'>My Learning</Link></li>
         <li> <Link to='/complete-course'>Completed Courses</Link></li>
+        <li> <Link to='/plan'>Plan</Link></li>
       </ul>
     </div>
         </nav>
@@ -135,7 +136,12 @@ console.log('Added to learnig')
 
               /> )}
               />
+        <Route
+            path='/plan'
+            component={Plan}
+            />
 
+{/* <PlayCourse/> */}
               {/* <iframe src="//www.youtube.com/embed/QFaFIcGhPoM"  ></iframe> */}
 
       </div>

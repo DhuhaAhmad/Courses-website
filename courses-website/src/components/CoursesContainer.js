@@ -22,7 +22,6 @@ export default class CoursesContainer extends Component {
 
   handleToggle = (id) => {
     this.setState({ toggleRoute: !this.state.toggleRoute, playListId: id });
-
     console.log(this.state.playListId)
   };
 
@@ -35,6 +34,7 @@ export default class CoursesContainer extends Component {
           channelName={ele.snippet.channelTitle}
           playListId={ele.id}
           channelId={ele.snippet.channelId}
+          description={ele.snippet.description}
           addToMyLearning={() => this.props.addToMyLearning(ele)}
           islearning={this.props.islearning}
           // ========Complete==========

@@ -197,7 +197,7 @@ export default class Categories extends Component {
     </div>
       return (
       <Router>
-        <div> 
+        <div className='categories'> 
           {/* to disappear the course categories */}
 
             {this.state.appear ? toRender : <Route
@@ -222,8 +222,8 @@ export default class Categories extends Component {
           
 
          
-          
-          Categories
+          <br></br>
+         <p>Categories</p> 
 
           
           
