@@ -11,7 +11,8 @@ export default class PlayCourse extends Component {
         this.state = {
             //  videoId:[],
              videoInfo:[],
-             videoUrl:''
+             videoUrl:'',
+             id:''
         }
         this.getListItems=this.getListItems.bind(this)
         this.getOneVideo=this.getOneVideo.bind(this)
@@ -67,8 +68,7 @@ export default class PlayCourse extends Component {
     };
 
     getOneVideo = (id) => {
-      console.log(id)
-      
+this.setState({id:id})      
         // this.state.videoId.forEach(ele=>{
 
             const url =
@@ -83,11 +83,11 @@ export default class PlayCourse extends Component {
                 //get video url 
               const url =  response.data.items
               console.log(url)
-            //  const urlStart = url.indexOf('src=') + 5
-            //  const end = url.substring(urlStart).indexOf('"') + urlStart
-            //  const videoUrl = url.substring(urlStart,end)
-            //  console.log(videoUrl)
-            //  this.setState({videoUrl})
+             const urlStart = url.indexOf('src=') + 5
+             const end = url.substring(urlStart).indexOf('"') + urlStart
+             const videoUrl = url.substring(urlStart,end)
+             console.log(videoUrl)
+             this.setState({videoUrl})
 
               })
               .catch((error) => {
@@ -107,29 +107,12 @@ export default class PlayCourse extends Component {
 
         return (
             <div className='play-course'>
-                <PlayList videoInfo={this.state.videoInfo}  getUrl={(e)=>this.getOneVideo}/>
-                <Video videoUrl={this.state.videoUrl} />
-                heerree {this.props.playListId}
+                <PlayList videoInfo={this.state.videoInfo}  getUrl={this.getOneVideo}/>
+                <Video videoUrl={this.state.videoUrl} videoInfo={this.state.videoInfo}/>
+                {/* heerree {this.props.playListId} */}
+                {this.state.id}
             </div>
         )
     }
-}
-
-/**
- 1- get all video list items 
- 2- find the videoID 
- 3- use another API tho pass videoID to get each video
- 4- get video link
- =======================================
-
-
- +++++Videos++++++
- - first video by default
- - make it continuous
- - Add course to my learning list 
-
- ++++++++To do +++++++++
- - Edit item ?????
- - delete all ????
-*/ 
+} 
 

@@ -44,23 +44,12 @@ export default class MyLearning extends Component {
             })
 
         return (
-            <Router>
-            <div>
-            {/* <Link to="/play-course"></Link>
+            <div className='my-courses'>
+                <h1 className='page-title'>My learning</h1>
 
-                {this.state.toggleRoute ?  <Route
-          path="/play-course"
-          render={(props) => (
-            <PlayCourse {...props} playListId={this.state.playListId} />
-          )}
-        /> : (<div>
             <DeleteAllList removeAll={this.props.removeAllMyLearning} />
-            {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
-        </div>)} */}
-<DeleteAllList removeAll={this.props.removeAllMyLearning} />
                 {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
             </div>
-             </Router>
         )
     }
 }

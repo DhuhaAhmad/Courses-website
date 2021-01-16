@@ -146,7 +146,8 @@ export default class Categories extends Component {
        (this.state.filter === 'business'? this.state.business : (this.state.filter === 'language'? this.state.language : 
        (this.state.filter === 'cooking'? this.state.cooking: (this.props.filter === 'mylearning'? this.props.myLearnig: this.props.complete)))))
     // store categories in var
-      const toRender = <div> <Link
+      const toRender = <div>  <h1 className='page-title'>Categories</h1>
+      <Link
       to="/courses-container"
       onClick={(e) => {
         this.getWebDevelpmentCourses('web development');
@@ -220,10 +221,10 @@ export default class Categories extends Component {
           />} {/**END IF statement */}
 
           
-
+{/* 
          
           <br></br>
-         <p>Categories</p> 
+         <p>Categories</p>  */}
 
           
           

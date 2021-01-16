@@ -7,15 +7,13 @@ import MyLearning from './components/MyLearning'
 import CompletedCourse from './components/CompletedCourse'
 import Plan from './components/Plan'
 import './App.css'
-
+import { Alert } from 'reactstrap';
 import {
   BrowserRouter as Router,
   Route,
   Link,
 } from "react-router-dom";
-// import PlayCourse from './components/PlayCourse'
 
-// import PlayCourse from './components/PlayCourse'
 
 export default class App extends Component {
 
@@ -23,8 +21,7 @@ export default class App extends Component {
     super(props)
   
     this.state = {
-      // togglePlayRoute:false,
-      // playListId:'',
+      
       myLearning:[],
       islearning:false,
       complete:[],
@@ -38,10 +35,11 @@ export default class App extends Component {
 addToMyLearning=(course)=>{
 const myLearning = this.state.myLearning.slice(0) //Create a copy of myLearning Array
 const courseIndex = myLearning.indexOf(course)
-myLearning.includes(course)? myLearning.splice(courseIndex,1) : myLearning.push(course)
-this.setState({myLearning})
+myLearning.includes(course)? myLearning.splice(courseIndex,1) && alert(`Removed  ${course.snippet.title} from My Learning`): myLearning.push(course) && alert(`Added ${course.snippet.title} to My Learning`)
+this.setState({myLearning});
 // this.setState({islearning: !this.setState.islearning})
 // console.log(myLearning)
+
 console.log('Added to learnig')
 
   }
@@ -49,7 +47,7 @@ console.log('Added to learnig')
   addToComplete=(course)=>{
     const complete = this.state.complete.slice(0) //Create a copy of myLearning Array
     const courseIndex = complete.indexOf(course)
-    complete.includes(course)? complete.splice(courseIndex,1) : complete.push(course)
+    complete.includes(course)? complete.splice(courseIndex,1) && alert(`Added ${course.snippet.title} from Completed courses`) : complete.push(course) && alert(`Added ${course.snippet.title} to Completed courses`)
     this.setState({complete})
     console.log('Added to learnig')
     
@@ -57,9 +55,12 @@ console.log('Added to learnig')
 
   removeAllMyLearning=()=>{
     this.setState({myLearning: []})
+    alert(`Removed all My Learning `)
+    
       }
   removeAllcomplete=()=>{
     this.setState({complete: []})
+    alert(`Removed all Completed courses`)
       }
 
 

@@ -4,7 +4,6 @@ import Categories from './Categories'
 import '../App.css'
 import {
     BrowserRouter as Router,
-    Switch,
     Route,
     Link
   } from "react-router-dom";
@@ -15,7 +14,8 @@ export default class Home extends Component {
         super(props)
     
         this.state = {
-             randomRuete:''
+             randomRuete:'',
+             home:true
         }
         this.getQuete=this.getQuete.bind(this)
     }
@@ -47,18 +47,28 @@ export default class Home extends Component {
     
 }
 
+homeToggle=()=>{
+    this.setState({home:!this.state.home})
+}
+
 
     
     render() {
+        const homeRender = <div className="home">
+              <p className='quete'>{this.state.randomRuete} </p>  
+        {/* To Categories page   */}
+      <Link to='/categories' onClick={this.homeToggle}><button className='get-started'>GET STARTED</button></Link> 
+      </div>
         return (
             <Router>
-            <div className="home">
-           <p className='quete'>{this.state.randomRuete} </p>  
-            {/* To Categories page   */}
-          <Link to='/categories'><button>GET STARTED</button></Link> 
-          <Route path='/categories' component={Categories}></Route> 
+                
+            {/* <div> */}
 
-            </div>
+                {this.state.home? homeRender:<Route path='/categories' component={Categories}></Route>  }
+         
+          
+
+            {/* </div> */}
             </Router>
 
         )

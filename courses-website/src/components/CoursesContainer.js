@@ -46,8 +46,11 @@ export default class CoursesContainer extends Component {
         />
       );
     });
-    return (
 
+    const pageTitle =<div> <h1 className='page-title'>Courses</h1></div>
+    const all = <div>{pageTitle} {allCourses}</div>
+
+    return (
       <Router>
         <div>
           {this.state.toggleRoute? <Switch>
@@ -58,16 +61,8 @@ export default class CoursesContainer extends Component {
                 <PlayCourse {...props} playListId={this.state.playListId} />
               )}
             />
-          </Switch> :allCourses}
+          </Switch> : all}
           
-          
-          {/* {this.state.toggleRoute ? <Route
-          path="/play-course"
-          render={(props) => (
-            <PlayCourse {...props} playListId={this.state.playListId} />
-          )}
-        />  : allCourses} */}
-          {/* {allCourses} */}
         </div>
       </Router>
     );

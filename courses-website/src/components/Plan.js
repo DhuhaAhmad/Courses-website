@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PlanList from './PlanList'
+import '../App.css'
 
 export default class Plan extends Component {
     constructor(props) {
@@ -33,17 +34,19 @@ export default class Plan extends Component {
       } 
       
       handleEditSubmit=(e)=>{
-     e.preventDefault();
+        e.preventDefault();
         let allPlan=this.state.allPlan
         const newPlan =this.state.plan
-        console.log(newPlan)
 
         const indexToEdit =  allPlan.indexOf(this.state.planToEdit)
-        console.log(indexToEdit)
 
         allPlan[indexToEdit]=newPlan
-        console.log(allPlan)
         this.setState({allPlan})
+      }
+
+      handlClearAll=(e)=>{
+     e.preventDefault();
+        this.setState({allPlan:[]})
 
       }
       
@@ -54,10 +57,11 @@ export default class Plan extends Component {
         return (
             <div className='plan'>
             <section id="add-card" className="container">
-            <div className="row">
-              <h1>What's your Plan?</h1>
+            <div >
+              <h1 className='page-title'>What's your Plan?</h1>
               <form name="add-card">
                 <input
+                className='input-plan'
                   type="text"
                 //   className="question"
                   name="paln"
@@ -65,8 +69,9 @@ export default class Plan extends Component {
                   value={this.state.plan}
                   onChange={(e) => this.handleChange(e)}
                    />
-                <input type="submit" className="btn-submit" value="Submit" onClick={(e) => this.handleSubmit(e)} />
-                <input type="submit" className="btn-submit" value="Edit" onClick={(e) => this.handleEditSubmit(e)} />
+                <button type="submit" className='button' value="Add" onClick={(e) => this.handleSubmit(e)} >Add</button>
+                <button type="submit" className='button' value="Edit" onClick={(e) => this.handleEditSubmit(e)} >Edit </button>
+                <button type="submit" className='button' value="Edit" onClick={(e) => this.handlClearAll(e)} >Clear All </button>
 
               </form>
 

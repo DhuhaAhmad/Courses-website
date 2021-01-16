@@ -53,14 +53,15 @@ export default class Course extends Component {
             <img src={this.props.url} />
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">
-              {this.props.courseTitle}
+            <span class="card-title activator">
+              <p  id='course-title'>{this.props.courseTitle}</p>
               <i class="material-icons right">more_vert</i>
             </span>
-            <p>
-              <ChannelPic channelPic={this.state.channelPic} /> Channel Name:{" "}
-              {this.props.channelName}
-            </p>
+            <div>
+            By:{" "}
+              <img className='channel-pic' src={this.state.channelPic}/>
+             <p className='channel-name'> {this.props.channelName}</p>
+            </div>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">
@@ -80,7 +81,7 @@ export default class Course extends Component {
             isComplete={this.props.isComplete}
           />
           <Link to="/play-course" onClick={this.handleToggle}>
-          <button className='start'>Start</button>
+          <button className='button'>Start</button>
           </Link>
 
         </div>

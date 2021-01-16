@@ -35,7 +35,8 @@ export default class CompletedCourse extends Component {
     });
     return (
         <Router>
-      <div>
+      <div className='my-courses'>
+      <h1 className='page-title'>Completed Course</h1>
         {/* <Link to="/play-course"></Link>
 
         {this.state.toggleRoute ? (
