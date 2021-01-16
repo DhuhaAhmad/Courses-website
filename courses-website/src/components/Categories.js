@@ -221,12 +221,6 @@ export default class Categories extends Component {
           />} {/**END IF statement */}
 
           
-{/* 
-         
-          <br></br>
-         <p>Categories</p>  */}
-
-          
           
         </div>
       </Router>

@@ -14,6 +14,7 @@ export default class ListItem extends Component {
 
     getUrl=()=>{
         this.props.getUrl(this.props.videoId)
+        // console.log('Clicked item'+this.props.videoId)
         this.setState({activeItem:!this.state.activeItem})
     }
   render() {

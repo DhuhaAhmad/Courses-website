@@ -12,7 +12,7 @@ export default class PlayCourse extends Component {
             //  videoId:[],
              videoInfo:[],
              videoUrl:'',
-             id:''
+            //  id:''
         }
         this.getListItems=this.getListItems.bind(this)
         this.getOneVideo=this.getOneVideo.bind(this)
@@ -30,7 +30,7 @@ export default class PlayCourse extends Component {
           .get(url)
           .then((response) => {
             // console.log(response)
-            // console.log(response.data)
+            console.log('getListItems',response.data)
             // to get a video id
             const info = response.data.items
 
@@ -68,12 +68,11 @@ export default class PlayCourse extends Component {
     };
 
     getOneVideo = (id) => {
-this.setState({id:id})      
+// this.setState({id:id})      
         // this.state.videoId.forEach(ele=>{
 
             const url =
             `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cplayer&id=${id}&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0`;
-          //  ' https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cplayer&id=oecI26cWqzk&key=AIzaSyA8XWtvKhZ_dv6sGdbvXne_A5oxgeYCxLc'
             axios
               .get(url)
               .then((response) => {
@@ -81,7 +80,7 @@ this.setState({id:id})
                 console.log(response.data)
                 
                 //get video url 
-              const url =  response.data.items
+              const url =  response.data.items[0].player.embedHtml
               console.log(url)
              const urlStart = url.indexOf('src=') + 5
              const end = url.substring(urlStart).indexOf('"') + urlStart
@@ -109,8 +108,7 @@ this.setState({id:id})
             <div className='play-course'>
                 <PlayList videoInfo={this.state.videoInfo}  getUrl={this.getOneVideo}/>
                 <Video videoUrl={this.state.videoUrl} videoInfo={this.state.videoInfo}/>
-                {/* heerree {this.props.playListId} */}
-                {this.state.id}
+               
             </div>
         )
     }

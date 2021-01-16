@@ -3,10 +3,8 @@ import React, { Component } from "react";
 import AddToList from "./AddToList";
 import "../App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import PlayCourse from "./PlayCourse";
 import Complete from "./Complete";
 import axios from "axios";
-import ChannelPic from "./ChannelPic";
 
 
 

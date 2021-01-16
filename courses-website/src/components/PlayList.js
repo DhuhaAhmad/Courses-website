@@ -10,7 +10,7 @@ export default class PlayList extends Component {
         const allVideoList = this.props.videoInfo.map((ele,i)=>{
             return <ListItem title={ele.title} 
             url={ele.image} 
-            videoId={ele.videoId}
+            videoId={ele.videoid}
             key={i}
             getUrl={this.props.getUrl}
             />
