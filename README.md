@@ -33,3 +33,5 @@
 - As a user, I should be able to edit the plan
 - As a user, I should be able to clear all plans
 
+## Future plan
+

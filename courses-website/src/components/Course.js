@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import CourseImage from "./CourseImage";
 import AddToList from "./AddToList";
 import "../App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
