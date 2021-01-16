@@ -2,12 +2,17 @@
 
 ## Online Courses website
 
-**A site offering courses in various fields, in addition to that the site has the feature of making daily plans to track a progress**
+**A website that offers courses in various fields. Also, the website has a feature of making daily plans and track its progress.**
+
+## Demo
+![](./Demo/Demo.gif)
 
 ## Built with
 
 - React.js
+- Axios
 - YouTube API
+- Advice Slip JSON API
 
 ## Technologies used
 
@@ -16,10 +21,13 @@
 - Chrome
 - Postman
 
-## WirfeFrame
+## WireFrame
 [Click to go to the wireframes](https://drive.google.com/file/d/1kRntQAqNk8xWCp21U0zLuB1YpffwfvND/view?usp=sharing)
 
+Built wireframe using [moqups](https://app.moqups.com/)
+
 ## Users Stories
+
 - As a user, I should be able to choose the category
 - As a user, I should be able to choose the course
 - As a user, I should be able to add a course in my learning list
@@ -35,3 +43,11 @@
 
 ## Future plan
 
+- Adding search feature, to be able the user to search for any course.
+- Able to watch Live videos
+- Adding comments
+
+## Resources
+
+- https://reactrouter.com/web/api/Redirect/from-string
+- https://www.w3schools.com/
