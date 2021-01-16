@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AddToList from "./AddToList";
 import "../App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import Complete from "./Complete";
 import axios from "axios";
 

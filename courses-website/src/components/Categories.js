@@ -213,9 +213,6 @@ export default class Categories extends Component {
               // ===========Complete==========
               handleAddToComplete={this.props.handleAddToComplete}
               isComplete={this.props.isComplete}
-
-              // ==========To get playlistid to start course
-              // handleToggle={this.props.handleToggle}
               />
             )}
           />} {/**END IF statement */}
@@ -227,35 +224,3 @@ export default class Categories extends Component {
     );
   }
 }
-
-
-
- //    const src =  response.data.items[0].player.embedHtml
-          //    const urlStart = src.indexOf('src=') + 5
-          //    const end = src.substring(urlStart).indexOf('"') + urlStart
-          //    const playListUrl = src.substring(urlStart,end)
-          //    webDevelpment.push(playListUrl)
-          //    this.setState({webDevelpment})
-          //    console.log(this.state.webDevelpment)
-
-
-          // render before toggleRoute
-
-          // {this.state.appear ? toRender : <Route
-          //   exact path="/courses-container"
-          //    render={(props) => (
-          //      <CoursesContainer {...props} course={courseArray}
-                 
-          //      addToMyLearning={this.props.addToMyLearning} 
-          //      filter={this.state.filter}
-          //      islearning={this.state.islearning} 
- 
-          //      // ===========Complete==========
-          //      handleAddToComplete={this.props.handleAddToComplete}
-          //      isComplete={this.props.isComplete}
- 
-          //      // ==========To get playlistid to start course
-          //      handleToggle={this.handleToggle}
-          //      />
-          //    )}
-          //  />}

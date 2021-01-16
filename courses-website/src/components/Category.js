@@ -7,7 +7,6 @@ export default class Category extends Component {
 
     <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
-    {/* <CourseImage url={this.props.url} /> */}
     <img className='category-img' src={this.props.url}/>
     </div>
     <div class="card-content">

@@ -61,14 +61,9 @@ homeToggle=()=>{
       </div>
         return (
             <Router>
-                
-            {/* <div> */}
 
                 {this.state.home? homeRender:<Route path='/categories' component={Categories}></Route>  }
-         
-          
 
-            {/* </div> */}
             </Router>
 
         )

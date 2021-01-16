@@ -6,7 +6,6 @@ export default class Video extends Component {
         return (
             <div id='video'>
                 <ReactPlayer width={740} height={480}  controls url={this.props.videoUrl}/>
-                {this.props.videoInfo.title}
             </div>
         )
     }

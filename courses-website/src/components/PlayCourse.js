@@ -9,10 +9,9 @@ export default class PlayCourse extends Component {
         super(props)
     
         this.state = {
-            //  videoId:[],
+            
              videoInfo:[],
              videoUrl:'',
-            //  id:''
         }
         this.getListItems=this.getListItems.bind(this)
         this.getOneVideo=this.getOneVideo.bind(this)
@@ -68,8 +67,7 @@ export default class PlayCourse extends Component {
     };
 
     getOneVideo = (id) => {
-// this.setState({id:id})      
-        // this.state.videoId.forEach(ele=>{
+
 
             const url =
             `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cplayer&id=${id}&key=AIzaSyClcbcULTF_w0FjrpC1y_MlK8j278Xz5w0`;

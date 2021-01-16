@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
 import Home from './components/Home'
 import Categories from './components/Categories'
 import About from './components/About'
@@ -7,7 +6,6 @@ import MyLearning from './components/MyLearning'
 import CompletedCourse from './components/CompletedCourse'
 import Plan from './components/Plan'
 import './App.css'
-import { Alert } from 'reactstrap';
 import {
   BrowserRouter as Router,
   Route,
@@ -142,8 +140,6 @@ console.log('Added to learnig')
             component={Plan}
             />
 
-{/* <PlayCourse/> */}
-              {/* <iframe src="//www.youtube.com/embed/QFaFIcGhPoM"  ></iframe> */}
 
       </div>
       </Router>

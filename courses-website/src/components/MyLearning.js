@@ -7,26 +7,6 @@ import PlayCourse from "./PlayCourse";
 
 export default class MyLearning extends Component {
 
-
-    // constructor(props) {
-    //     super(props)
-    
-    //     this.state = {
-    //          toggleRoute:false,
-    //          playListId:''
-             
-    //     }
-    // }
-    
-    // handleToggle=(id)=>{
-    
-    //     this.setState({toggleRoute:!this.state.toggleRoute,
-    //         playListId:id
-    //     })
-    
-    // }
-
-
     render() {
         
 
@@ -38,7 +18,6 @@ export default class MyLearning extends Component {
              addToMyLearning={()=>this.props.addToMyLearning(ele)}
              handleAddToComplete={()=>this.props.handleAddToComplete(ele)}
              islearning={true}
-            //  handleToggle={this.handleToggle}
              key={i}
              />
             })
