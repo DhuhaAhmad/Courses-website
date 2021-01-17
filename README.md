@@ -10,6 +10,7 @@
 ## Built with
 
 - React.js
+- CSS
 - Axios
 - YouTube API
 - Advice Slip JSON API
