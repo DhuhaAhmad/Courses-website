@@ -33,10 +33,13 @@
 }
 
 .my-courses{
-  height: 695px;
+  height: 700px;
+  width: 100%;
   display: flex;
-align-items: center;
-flex-direction: column;
+  justify-content: center;
+/* align-items: center; */
+flex-direction: row;
+margin-right: 100px;
 }
 
 /* plan style */
@@ -203,7 +206,7 @@ margin-right: 100px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 40px;
   color: #282c34;
-  margin-top:280px
+  margin-top:160px
 }
 
 #list-item{

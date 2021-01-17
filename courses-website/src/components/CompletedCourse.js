@@ -23,8 +23,8 @@ export default class CompletedCourse extends Component {
     });
     return (
         <Router>
+          <h1 className='page-title'>Completed Course</h1>
       <div className='my-courses'>
-      <h1 className='page-title'>Completed Course</h1>
         <DeleteAllList removeAll={this.props.removeAllcomplete} />
                 {completeCourses.length >0 ? completeCourses: <h1>No completed course </h1>}
       </div>

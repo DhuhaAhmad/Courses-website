@@ -23,11 +23,14 @@ export default class MyLearning extends Component {
             })
 
         return (
+            <div>
+            <h1 className='page-title'>My learning</h1>
+
             <div className='my-courses'>
-                <h1 className='page-title'>My learning</h1>
 
             <DeleteAllList removeAll={this.props.removeAllMyLearning} />
                 {learningCourses.length >0 ? learningCourses: <h1>No course Added</h1>}
+            </div>
             </div>
         )
     }

@@ -43,7 +43,7 @@ Built wireframe using [moqups](https://app.moqups.com/)
 
 ## Future plan
 
-- Adding search feature, to be able the user to search for any course.
+- Adding search feature, to able the user to search for any course.
 - Able to watch Live videos
 - Adding comments
 
