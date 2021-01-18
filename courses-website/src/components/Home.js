@@ -62,7 +62,21 @@ homeToggle=()=>{
         return (
             <Router>
 
-                {this.state.home? homeRender:<Route path='/categories' component={Categories}></Route>  }
+                {this.state.home? homeRender:<Route
+            path='/categories'
+            render={(props) => (
+              <Categories {...props} 
+              addToMyLearning={this.props.addToMyLearning}
+               myLearnig={this.props.myLearnig} 
+              islearning={this.props.islearning}
+              filter={this.props.filter}
+              // ===========Complete========
+              handleAddToComplete={this.props.handleAddToComplete}
+              complete={this.props.complete}
+              isComplete={this.props.isComplete}
+              // =====toggle play course route=====
+              /> )}
+              />  }
 
             </Router>
 

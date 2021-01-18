@@ -82,13 +82,27 @@ console.log('Added to learnig')
     </div>
         </nav>
 
-        <Route exact path='/' component={Home} />
+        {/* <Route exact path='/' component={Home} /> */}
         <Route path='/about' component={About} />
 
-    
+        <Route
+          exact  path='/'
+            render={(props) => (
+              <Home {...props} 
+              addToMyLearning={this.addToMyLearning}
+               myLearnig={this.state.myLearnig} 
+              islearning={this.state.islearning}
+              filter={'mylearning'}
+              // ===========Complete========
+              handleAddToComplete={this.addToComplete}
+              complete={this.state.complete}
+              isComplete={this.state.isComplete}
+              // =====toggle play course route=====
+              /> )}
+              />
 
         <Route
-          exact  path='/categories'
+            path='/categories'
             render={(props) => (
               <Categories {...props} 
               addToMyLearning={this.addToMyLearning}
@@ -100,7 +114,6 @@ console.log('Added to learnig')
               complete={this.state.complete}
               isComplete={this.state.isComplete}
               // =====toggle play course route=====
-              // handleToggle={this.handleToggle}
               /> )}
               />
        
