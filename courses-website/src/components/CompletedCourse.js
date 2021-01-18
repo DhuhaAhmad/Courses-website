@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Course from "./Course";
 import DeleteAllList from "./DeleteAllList";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import PlayCourse from "./PlayCourse";
+// import { BrowserRouter as Router } from "react-router-dom";
 
 export default class CompletedCourse extends Component {
  
@@ -22,13 +21,13 @@ export default class CompletedCourse extends Component {
       );
     });
     return (
-        <Router>
+      <div>
           <h1 className='page-title'>Completed Course</h1>
       <div className='my-courses'>
         <DeleteAllList removeAll={this.props.removeAllcomplete} />
                 {completeCourses.length >0 ? completeCourses: <h1>No completed course </h1>}
       </div>
-      </Router>
+      </div>
     );
   }
 }

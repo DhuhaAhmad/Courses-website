@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 // import CoursesContainer from './CoursesContainer'
 import Course from './Course'
 import DeleteAllList from './DeleteAllList'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import PlayCourse from "./PlayCourse";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import PlayCourse from "./PlayCourse";
 
 export default class MyLearning extends Component {
 

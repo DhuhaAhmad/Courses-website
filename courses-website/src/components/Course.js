@@ -6,7 +6,6 @@ import Complete from "./Complete";
 import axios from "axios";
 
 
-
 export default class Course extends Component {
   constructor(props) {
     super(props);
@@ -86,4 +85,3 @@ export default class Course extends Component {
     );
   }
 }
-

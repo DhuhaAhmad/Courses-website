@@ -8,7 +8,7 @@ export default class complete extends Component {
         this.props.handleAddToComplete()
       }
     render() {
-        const iscomplete = this.props.isComplete? 'turned_in':'turned_in_not'
+        const iscomplete = this.props.isComplete? 'clear':'done'
         return (
             
             <div className="btn-floating btn-large waves-effect waves-light orange complete-icon">
